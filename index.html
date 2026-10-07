@@ -11,14 +11,31 @@
   <header>
     <h1>Maschine lernt</h1>
     <p class="unterzeile">
-      Zeig der Kamera, was sie unterscheiden soll. Sie lernt es sofort — im Browser,
-      ohne Konto, ohne dass ein Bild das Gerät verlässt.
+      Bring der Maschine etwas bei: zeig ihr Beispiele, und sie urteilt sofort mit.
+      Sie unterscheidet Dinge auf Bildern oder Haltungen von Personen. Alles rechnet
+      auf diesem Gerät.
     </p>
   </header>
 
   <main>
     <section class="kasten">
-      <h2>1. Bildquelle</h2>
+      <h2>1. Was soll sie lernen?</h2>
+      <div class="modus-wahl" role="group" aria-label="Betriebsart wählen">
+        <button id="modus-bild" type="button" class="modus aktiv" aria-pressed="true">
+          Bilder und Dinge
+        </button>
+        <button id="modus-haltung" type="button" class="modus" aria-pressed="false">
+          Haltungen
+        </button>
+      </div>
+      <p class="hinweis" id="modus-hinweis">
+        Bei „Bilder und Dinge" beschreibt ein Bildnetz das Motiv. Jede Betriebsart
+        führt einen eigenen Lernstand — beim Wechsel geht nichts verloren.
+      </p>
+    </section>
+
+    <section class="kasten">
+      <h2>2. Bildquelle</h2>
       <div class="knopfreihe">
         <button id="kamera-knopf" type="button" class="haupt">Kamera einschalten</button>
         <label class="knopf datei">
@@ -26,29 +43,37 @@
           <input id="datei-wahl" type="file" accept="image/*" multiple hidden>
         </label>
       </div>
+      <div class="bildflaeche">
+        <video id="kamera" playsinline muted autoplay hidden></video>
+        <img id="bild" alt="Gewähltes Bild" hidden>
+        <p class="leer" id="bild-leer">Noch kein Bild.</p>
+      </div>
       <p class="hinweis" id="quellen-hinweis">
         Ohne Kamera geht es auch: wähle Bilddateien aus.
       </p>
     </section>
 
     <section class="kasten">
-      <h2>2. Was die Maschine sieht</h2>
-      <div class="bildflaeche">
-        <video id="kamera" playsinline muted autoplay></video>
-        <img id="bild" alt="Gewähltes Bild" hidden>
-        <p class="leer" id="bild-leer">Noch kein Bild.</p>
+      <h2>3. Was die Maschine sieht</h2>
+      <div class="blick">
+        <canvas id="leinentuch" width="224" height="224"></canvas>
+        <canvas id="ueberlagerung" width="224" height="224"></canvas>
       </div>
-      <canvas id="leinentuch" width="224" height="224" hidden></canvas>
+      <p class="hinweis" id="blick-hinweis">
+        Genau dieser quadratische Ausschnitt geht in die Rechnung — 224 × 224 Bildpunkte,
+        immer der größte mögliche Quadrat in der Bildmitte. Was hier nicht zu sehen ist,
+        kann die Maschine nicht unterscheiden.
+      </p>
     </section>
 
     <section class="kasten">
-      <h2>3. Klassen anlegen und beibringen</h2>
+      <h2>4. Klassen anlegen und beibringen</h2>
       <div class="klasse-anlegen">
         <label for="klasse-name">Neue Klasse</label>
         <input id="klasse-name" type="text" maxlength="24" placeholder="z. B. Apfel">
         <button id="klasse-knopf" type="button">Hinzufügen</button>
       </div>
-      <p class="hinweis">
+      <p class="hinweis" id="klassen-hinweis">
         Gute Beispielsammlung: dasselbe Objekt aus mehreren Winkeln, mit wechselndem
         Hintergrund und Licht. Zehn Beispiele je Klasse sind das Minimum — darunter rät die Maschine.
       </p>
@@ -57,7 +82,7 @@
     </section>
 
     <section class="kasten">
-      <h2>4. Was die Maschine gerade meint</h2>
+      <h2>5. Was die Maschine gerade meint</h2>
       <p class="gross" id="urteil-gross">– noch keine Beispiele –</p>
       <div id="urteile" class="urteile"></div>
       <p class="hinweis" id="urteil-fuss">
@@ -67,7 +92,7 @@
     </section>
 
     <section class="kasten">
-      <h2>5. Modell sichern</h2>
+      <h2>6. Modell sichern</h2>
       <div class="knopfreihe">
         <button id="sichern-knopf" type="button" disabled>Als Datei sichern</button>
         <label class="knopf datei">
@@ -76,7 +101,8 @@
         </label>
       </div>
       <p class="hinweis" id="sicherung-hinweis">
-        Ohne Sicherung ist die Arbeit nach dem Schließen des Fensters weg.
+        Ohne Sicherung ist die Arbeit nach dem Schließen des Fensters weg. Eine Sicherung
+        gehört immer zu einer Betriebsart und wird nur dort wieder geladen.
       </p>
     </section>
   </main>
@@ -86,8 +112,8 @@
   <footer>
     <p class="klein">
       Alles rechnet auf diesem Gerät. Kein Konto, keine Übertragung, keine Zählung.
-      Das Bildnetz ist ein fertig trainiertes Modell und liegt bei dieser Seite —
-      es wird nicht von einem fremden Server geholt.
+      Die Modelle sind fertig trainiert und liegen bei dieser Seite — sie werden nicht
+      von einem fremden Server geholt.
     </p>
   </footer>
 

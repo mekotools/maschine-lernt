@@ -1,6 +1,7 @@
 /* Maschine lernt — Gestaltung.
    Absicht: kompakt, ruhig, ohne fremde Schriften. Farbe nur dort, wo sie etwas
-   bedeutet (Urteil, Aufnahmemenge). Heller und dunkler Modus sind gleichwertig. */
+   bedeutet (Urteil, Aufnahmemenge, Betriebsart). Heller und dunkler Modus sind
+   gleichwertig. */
 
 :root {
   --grund: #f6f7f9;
@@ -95,6 +96,16 @@ input[type="text"] {
   min-width: 0;
 }
 
+/* Betriebsarten: deutlich sichtbar, welche gerade gilt. */
+.modus-wahl { display: flex; gap: .5rem; }
+.modus-wahl button.modus { flex: 1; }
+.modus-wahl button.modus.aktiv {
+  background: var(--haupt);
+  border-color: var(--haupt);
+  color: #fff;
+  font-weight: 600;
+}
+
 .klasse-anlegen {
   display: flex;
   gap: .5rem;
@@ -113,9 +124,32 @@ input[type="text"] {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: .6rem;
 }
 .bildflaeche video, .bildflaeche img { width: 100%; height: 100%; object-fit: contain; }
 .bildflaeche .leer { color: #9aa4b0; font-size: .9rem; }
+
+/* Der Blick der Maschine: der quadratische Ausschnitt, aus dem gerechnet wird.
+   Auf ihm liegt die Ueberlagerung mit dem Skelett. */
+.blick {
+  position: relative;
+  width: 224px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #000;
+  border-radius: .45rem;
+  overflow: hidden;
+  border: 1px solid var(--linie);
+  image-rendering: auto;
+}
+.blick canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#ueberlagerung { pointer-events: none; }
 
 .klassen { display: flex; flex-direction: column; gap: .5rem; }
 .klasse {
@@ -142,6 +176,7 @@ input[type="text"] {
 
 .hinweis { color: var(--leise); font-size: .88rem; margin: .5rem 0 0; }
 .hinweis.fehler { color: var(--warn); }
+.leer { color: var(--leise); font-size: .9rem; }
 .klein { color: var(--leise); font-size: .82rem; }
 
 .stand {

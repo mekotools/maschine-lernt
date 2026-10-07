@@ -9,9 +9,12 @@
     "dev": "vite",
     "build": "vite build",
     "vorschau": "vite preview",
-    "gewichte": "node scripts/gewichte-holen.mjs"
+    "gewichte": "node scripts/gewichte-holen.mjs",
+    "wasm": "node scripts/wasm-kopieren.mjs",
+    "vorbereiten": "npm run gewichte && npm run wasm"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "^1.1.0",
     "@tensorflow-models/knn-classifier": "1.2.6",
     "@tensorflow-models/mobilenet": "2.1.1",
     "@tensorflow/tfjs": "4.22.0"

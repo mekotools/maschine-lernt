@@ -10,10 +10,12 @@ WORKDIR /bau
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
 COPY . .
-RUN node scripts/gewichte-holen.mjs \
+RUN npm run vorbereiten \
  && npm run build \
  && test -s dist/index.html \
- && test -s dist/modelle/mobilenet/model.json
+ && test -s dist/modelle/mobilenet/model.json \
+ && test -s dist/modelle/pose/pose_landmarker_lite.task \
+ && test -s dist/mediapipe/wasm/vision_wasm_internal.wasm
 
 FROM nginx:1.27-alpine
 COPY --from=bau /bau/dist/ /usr/share/nginx/html/

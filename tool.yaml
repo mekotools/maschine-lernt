@@ -5,7 +5,7 @@ schema_version: 1
 
 id: maschine-lernt
 titel: "Maschine lernt"
-kurzbeschreibung: "Kamera oder Bilddateien zeigen, Klassen anlegen, Beispiele aufnehmen — und die Maschine urteilt sofort mit. Alles im Browser, ohne Konto."
+kurzbeschreibung: "Kamera oder Bilddateien zeigen, Klassen anlegen, Beispiele aufnehmen — und die Maschine urteilt sofort mit. Zwei Betriebsarten: Motive und Körperhaltungen. Alles im Browser, ohne Konto."
 
 themen: [ki]
 unterthemen: [ki/bild]
@@ -43,6 +43,6 @@ doku:
   unterrichtsentwurf: docs/unterrichtsentwurf.md
   aufwand_aufbereitung: niedrig
 
-datenschutz_hinweis: "Kein Konto, keine Anmeldung, keine Übertragung. Bilder und Ton bleiben auf dem Gerät; das Bildnetz liegt bei der Seite und wird nicht von fremden Servern geholt."
+datenschutz_hinweis: "Kein Konto, keine Anmeldung, keine Übertragung. Bilder bleiben auf dem Gerät; Bild- und Haltungsnetz liegen bei der Seite und werden nicht von fremden Servern geholt."
 
-stand: "2026-10-06"
+stand: "2026-10-07"

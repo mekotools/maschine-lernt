@@ -13,6 +13,21 @@ Durchlauf.
   auch Bilddateien verwenden — dann brauchen Sie nichts weiter.
 - Kein Konto, keine Kennwörter, keine Anmeldung. Es gibt auch nichts einzurichten.
 
+## Zwei Betriebsarten
+
+Ganz oben wählen Sie, **was** gelernt werden soll:
+
+- **Bilder und Dinge** (Voreinstellung): Ein Bildnetz beschreibt das Motiv.
+  Geeignet für Gegenstände, Tiere, Formen, Materialien.
+- **Haltungen**: Ein Haltungsnetz erkennt 33 Körperpunkte und zeichnet sie ins
+  Bild. Geeignet für Bewegungen, Sport, Tanz, „wer steht — wer sitzt".
+
+Jede Betriebsart führt einen **eigenen Lernstand**; beim Umschalten geht nichts
+verloren. Eine Sicherung vermerkt, zu welcher Betriebsart sie gehört. Die
+Haltungsbetriebe braucht beim ersten Wechsel ein paar Sekunden zum Laden und läuft
+auf Rechnern mit Grafikbeschleuniger deutlich flüssiger — die Standzeile nennt den
+benutzten Rechenweg. Messwerte, Grenzen und Beispiele: [Haltungen](haltungen.md).
+
 ## In fünf Schritten
 
 **1. Bildquelle wählen.** „Kamera einschalten" — der Browser fragt nach der
@@ -58,5 +73,7 @@ Gerät wieder laden — die Beispiele sind dann sofort wieder da.
 | „Die Kamera ist gerade von einem anderen Programm belegt." | Videokonferenz oder anderes Programm schließen. |
 | „Das Bildnetz ließ sich nicht laden" | Schwerwiegend: bitte melden. Normalerweise liegt das Netz bei der Seite. |
 | Urteil springt ständig hin und her | Zu wenige oder zu ähnliche Beispiele. Mehr aufnehmen. |
+| „Die erkannten Punkte liegen zu schmal beieinander …" | Nur im Haltungsbetrieb: Das Netz hat etwas gefunden, das keine Person ist. Näher an die Kamera treten und den ganzen Körper ins Bild nehmen. |
+| Haltungsbetrieb reagiert zäh | Rechner ohne Grafikbeschleuniger. Die Standzeile nennt den Rechenweg (GPU oder CPU). Auf einem Gerät mit Grafikbeschleuniger ist es flüssig. |
 
 Alle Meldungen erscheinen sichtbar auf der Seite — es gibt keine stillen Fehler.

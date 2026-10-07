@@ -1,6 +1,7 @@
 node_modules
 dist
 public/modelle
+public/mediapipe
 *.log
 cookies.txt
 PLAN.md
