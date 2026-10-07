@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Maschine lernt</title>
+  <link rel="stylesheet" href="./src/stil.css">
+</head>
+<body>
+  <header>
+    <h1>Maschine lernt</h1>
+    <p class="unterzeile">
+      Zeig der Kamera, was sie unterscheiden soll. Sie lernt es sofort — im Browser,
+      ohne Konto, ohne dass ein Bild das Gerät verlässt.
+    </p>
+  </header>
+
+  <main>
+    <section class="kasten">
+      <h2>1. Bildquelle</h2>
+      <div class="knopfreihe">
+        <button id="kamera-knopf" type="button" class="haupt">Kamera einschalten</button>
+        <label class="knopf datei">
+          Bilder wählen
+          <input id="datei-wahl" type="file" accept="image/*" multiple hidden>
+        </label>
+      </div>
+      <p class="hinweis" id="quellen-hinweis">
+        Ohne Kamera geht es auch: wähle Bilddateien aus.
+      </p>
+    </section>
+
+    <section class="kasten">
+      <h2>2. Was die Maschine sieht</h2>
+      <div class="bildflaeche">
+        <video id="kamera" playsinline muted autoplay></video>
+        <img id="bild" alt="Gewähltes Bild" hidden>
+        <p class="leer" id="bild-leer">Noch kein Bild.</p>
+      </div>
+      <canvas id="leinentuch" width="224" height="224" hidden></canvas>
+    </section>
+
+    <section class="kasten">
+      <h2>3. Klassen anlegen und beibringen</h2>
+      <div class="klasse-anlegen">
+        <label for="klasse-name">Neue Klasse</label>
+        <input id="klasse-name" type="text" maxlength="24" placeholder="z. B. Apfel">
+        <button id="klasse-knopf" type="button">Hinzufügen</button>
+      </div>
+      <p class="hinweis">
+        Gute Beispielsammlung: dasselbe Objekt aus mehreren Winkeln, mit wechselndem
+        Hintergrund und Licht. Zehn Beispiele je Klasse sind das Minimum — darunter rät die Maschine.
+      </p>
+      <div id="klassen" class="klassen"></div>
+      <p class="leer" id="klassen-leer">Noch keine Klasse angelegt.</p>
+    </section>
+
+    <section class="kasten">
+      <h2>4. Was die Maschine gerade meint</h2>
+      <p class="gross" id="urteil-gross">– noch keine Beispiele –</p>
+      <div id="urteile" class="urteile"></div>
+      <p class="hinweis" id="urteil-fuss">
+        Das Urteil entsteht allein aus deinen Beispielen. Ein Balken ist keine Wahrheit,
+        sondern eine Ähnlichkeit — genau darum geht es hier.
+      </p>
+    </section>
+
+    <section class="kasten">
+      <h2>5. Modell sichern</h2>
+      <div class="knopfreihe">
+        <button id="sichern-knopf" type="button" disabled>Als Datei sichern</button>
+        <label class="knopf datei">
+          Gesicherte Datei laden
+          <input id="laden-wahl" type="file" accept="application/json,.json" hidden>
+        </label>
+      </div>
+      <p class="hinweis" id="sicherung-hinweis">
+        Ohne Sicherung ist die Arbeit nach dem Schließen des Fensters weg.
+      </p>
+    </section>
+  </main>
+
+  <p class="stand" id="stand" role="status" aria-live="polite">Wird vorbereitet …</p>
+
+  <footer>
+    <p class="klein">
+      Alles rechnet auf diesem Gerät. Kein Konto, keine Übertragung, keine Zählung.
+      Das Bildnetz ist ein fertig trainiertes Modell und liegt bei dieser Seite —
+      es wird nicht von einem fremden Server geholt.
+    </p>
+  </footer>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

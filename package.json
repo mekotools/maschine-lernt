@@ -1,0 +1,22 @@
+{
+  "name": "maschine-lernt",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Eigenes Bildklassifikations-Werkzeug fuer den Unterricht. Lernt im Browser, ohne Konto, ohne Server.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "vorschau": "vite preview",
+    "gewichte": "bash scripts/gewichte-holen.sh"
+  },
+  "dependencies": {
+    "@tensorflow-models/knn-classifier": "1.2.6",
+    "@tensorflow-models/mobilenet": "2.1.1",
+    "@tensorflow/tfjs": "4.22.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.3"
+  }
+}

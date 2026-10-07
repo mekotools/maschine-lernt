@@ -1,0 +1,48 @@
+# Metadaten des MekoTools-Werkzeugs "Maschine lernt".
+# Schema: schema/tool.schema.json im Repo mekotools-katalog.
+
+schema_version: 1
+
+id: maschine-lernt
+titel: "Maschine lernt"
+kurzbeschreibung: "Kamera oder Bilddateien zeigen, Klassen anlegen, Beispiele aufnehmen — und die Maschine urteilt sofort mit. Alles im Browser, ohne Konto."
+
+themen: [ki]
+unterthemen: [ki/bild]
+
+laufzeit: browser
+betrieb: eigen
+
+reifegrad: beta
+aufwand_lehrkraft: niedrig
+zielgruppe: [sek1, sek2, berufsschule, erwachsene]
+
+bildungsbezug:
+  kompetenzen: [analysieren-reflektieren, problemloesen-handeln]
+  faecher: [informatik, naturwissenschaften, kunst]
+  lernziele:
+    - "Die Lernenden können erklären, dass eine Maschine nur aus Beispielen lernt und nicht 'weiss', was ein Apfel ist."
+    - "Die Lernenden können begründet vorhersagen, wie sich eine einseitige oder zu kleine Beispielsammlung auf das Urteil auswirkt."
+    - "Die Lernenden können an einem eigenen Modell prüfen, ob ein Urteil belastbar ist, und die Grenzen benennen."
+
+technik:
+  artefakte:
+    - typ: image
+      referenz: "ghcr.io/mekotools/maschine-lernt:latest"
+      sichtbarkeit: public
+      geprueft_am: "2026-10-06"
+  dienst_url: "https://maschine-lernt.mekotools.de"
+  port: 80
+  quellcode: "https://git.n0ne.de/mekotools/maschine-lernt"
+  lizenz: "MIT"
+  lizenz_link: "https://git.n0ne.de/mekotools/maschine-lernt/src/branch/main/LICENSE"
+
+doku:
+  anleitung: docs/anleitung.md
+  didaktik: docs/didaktik.md
+  unterrichtsentwurf: docs/unterrichtsentwurf.md
+  aufwand_aufbereitung: niedrig
+
+datenschutz_hinweis: "Kein Konto, keine Anmeldung, keine Übertragung. Bilder und Ton bleiben auf dem Gerät; das Bildnetz liegt bei der Seite und wird nicht von fremden Servern geholt."
+
+stand: "2026-10-06"

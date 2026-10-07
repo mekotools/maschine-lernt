@@ -1,0 +1,162 @@
+/* Maschine lernt — Gestaltung.
+   Absicht: kompakt, ruhig, ohne fremde Schriften. Farbe nur dort, wo sie etwas
+   bedeutet (Urteil, Aufnahmemenge). Heller und dunkler Modus sind gleichwertig. */
+
+:root {
+  --grund: #f6f7f9;
+  --karte: #ffffff;
+  --linie: #d9dde3;
+  --text: #1b1f24;
+  --leise: #5c6673;
+  --haupt: #14532d;
+  --haupt-hell: #1f7a45;
+  --warn: #8a2c2c;
+  --balken: #2ea043;
+  --balken-rest: #c8cdd4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --grund: #14171a;
+    --karte: #1c2024;
+    --linie: #333a41;
+    --text: #e8eaed;
+    --leise: #98a2ad;
+    --haupt: #2ea043;
+    --haupt-hell: #37b350;
+    --warn: #e07a7a;
+    --balken: #2ea043;
+    --balken-rest: #3a424a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--grund);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header, main, footer, .stand {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header { padding-top: 1.6rem; }
+h1 { margin: 0 0 .2rem; font-size: 1.9rem; letter-spacing: -.02em; }
+h2 { margin: 0 0 .6rem; font-size: 1.05rem; }
+.unterzeile { margin: 0; color: var(--leise); max-width: 52rem; }
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 1rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1rem;
+  align-items: start;
+}
+
+.kasten {
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: .6rem;
+  padding: .9rem 1rem 1rem;
+}
+
+.knopfreihe { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+
+button, .knopf {
+  font: inherit;
+  padding: .5rem .9rem;
+  border-radius: .45rem;
+  border: 1px solid var(--linie);
+  background: var(--karte);
+  color: var(--text);
+  cursor: pointer;
+}
+button:hover, .knopf:hover { border-color: var(--haupt-hell); }
+button.haupt { background: var(--haupt); border-color: var(--haupt); color: #fff; }
+button.klein { padding: .2rem .5rem; font-size: .85rem; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.knopf.datei { display: inline-block; }
+input[type="text"] {
+  font: inherit;
+  padding: .45rem .6rem;
+  border-radius: .45rem;
+  border: 1px solid var(--linie);
+  background: var(--karte);
+  color: var(--text);
+  min-width: 0;
+}
+
+.klasse-anlegen {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: .7rem;
+}
+.klasse-anlegen label { width: 100%; font-size: .9rem; color: var(--leise); }
+
+.bildflaeche {
+  position: relative;
+  background: #000;
+  border-radius: .45rem;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bildflaeche video, .bildflaeche img { width: 100%; height: 100%; object-fit: contain; }
+.bildflaeche .leer { color: #9aa4b0; font-size: .9rem; }
+
+.klassen { display: flex; flex-direction: column; gap: .5rem; }
+.klasse {
+  border: 1px solid var(--linie);
+  border-radius: .45rem;
+  padding: .5rem .6rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .3rem .6rem;
+  align-items: center;
+}
+.klasse .name { font-weight: 600; }
+.klasse .zahl { color: var(--leise); font-size: .9rem; }
+.klasse .reihe { grid-column: 1 / -1; display: flex; gap: .4rem; flex-wrap: wrap; }
+
+.urteile { display: flex; flex-direction: column; gap: .45rem; margin-bottom: .6rem; }
+.urteil { display: grid; grid-template-columns: 8.5rem 1fr 3.2rem; gap: .5rem; align-items: center; }
+.urteil .balken { background: var(--balken-rest); border-radius: 999px; height: .8rem; overflow: hidden; }
+.urteil .balken > span { display: block; height: 100%; width: 0; background: var(--balken); transition: width .15s linear; }
+.urteil .prozent { text-align: right; font-variant-numeric: tabular-nums; color: var(--leise); font-size: .9rem; }
+.urteil .wer { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.gross { font-size: 1.25rem; font-weight: 600; margin: .2rem 0 .4rem; }
+
+.hinweis { color: var(--leise); font-size: .88rem; margin: .5rem 0 0; }
+.hinweis.fehler { color: var(--warn); }
+.klein { color: var(--leise); font-size: .82rem; }
+
+.stand {
+  position: sticky;
+  bottom: 0;
+  background: var(--grund);
+  border-top: 1px solid var(--linie);
+  color: var(--leise);
+  font-size: .88rem;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+}
+
+footer { padding-bottom: 4rem; }
+@media (max-width: 30rem) {
+  h1 { font-size: 1.5rem; }
+  .urteil { grid-template-columns: 6rem 1fr 3rem; }
+}
