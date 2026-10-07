@@ -10,7 +10,7 @@ WORKDIR /bau
 COPY package.json package-lock.json ./
 RUN npm ci --no-audit --no-fund
 COPY . .
-RUN bash scripts/gewichte-holen.sh \
+RUN node scripts/gewichte-holen.mjs \
  && npm run build \
  && test -s dist/index.html \
  && test -s dist/modelle/mobilenet/model.json

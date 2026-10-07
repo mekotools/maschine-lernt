@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "vorschau": "vite preview",
-    "gewichte": "bash scripts/gewichte-holen.sh"
+    "gewichte": "node scripts/gewichte-holen.mjs"
   },
   "dependencies": {
     "@tensorflow-models/knn-classifier": "1.2.6",
